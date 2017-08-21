@@ -1,7 +1,6 @@
 package cn.mwxu16;
 
-import cn.JDBCUtils.JDBCUtils;
-
+import cn.JDBCUtils.DButils;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -10,17 +9,16 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Created by TANRAN on 2017/8/21.
+ * Created by TANRAN on 2017/8/21
  */
-
 /**
+ * 测试DButils工具类
  * 将数据表中查询出来的数据封装到对象中，并把对象存储到List集合中
  */
-
 public class TestJDBC {
     public static void main(String[] args) throws SQLException {
         //获取数据库连接驱动
-        Connection con = JDBCUtils.getConnection();
+        Connection con = DButils.getConnection();
         //定义sql语句
         String sql = "SELECT * FROM user";
         //创建数据库执行者对象
@@ -37,12 +35,10 @@ public class TestJDBC {
             list.add(u);
         }
         //调用JDBCUtils类的方法，关闭资源
-        JDBCUtils.close(con,pst,rs);
+        DButils.close(con,pst,rs);
         //使用增强for遍历list集合，输出对象
         for(user u :list){
             System.out.println(u);
         }
-
     }
-
 }
