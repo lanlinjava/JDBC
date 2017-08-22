@@ -14,6 +14,7 @@ import java.util.List;
 /**
  * 测试DButils工具类
  * 将数据表中查询出来的数据封装到对象中，并把对象存储到List集合中
+ *遍历List集合，输出对象
  */
 public class TestJDBC {
     public static void main(String[] args) throws SQLException {
